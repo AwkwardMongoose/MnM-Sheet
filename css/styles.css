@@ -1,0 +1,156 @@
+* {
+    font-family: 'Yusei Magic';
+}
+
+*:focus {
+    outline: 2px dashed yellow;
+}
+
+input {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+input:hover:not(:focus) {
+    border-radius: 2px;
+    box-shadow: 0px 0px 2px 2px yellow;
+    cursor: pointer;
+}
+
+input:focus:hover {
+    cursor:text;
+}
+
+body {
+    margin: 0px 0px;
+    background-color: rgb(173, 204, 230);
+}
+
+.topgrid {
+    display: grid;
+    width: 1020px;
+    height: 1000px;
+    padding-left: 10px;
+    padding-right: 10px;
+    grid-template-rows: min-content auto;
+    margin: auto;
+    margin-top: 10px;
+    gap: 5px;
+    grid-template-areas: 
+    'topgrid'
+    'topinfo'
+    ;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(24, 61, 117);
+    box-shadow: 0px 0px 8px 3px black;
+}
+
+.nameflex {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    vertical-align:bottom
+}
+
+.charnamediv {
+    border: 1px solid black;
+    border-radius: 4px;
+    background: linear-gradient(0.15turn, orange, darkred);
+    box-shadow: 3px 3px 3px rgb(9, 23, 44),0px 0px 8px 1px black;
+    position: relative;
+    top: -10px;
+    left: -15px;
+}
+
+.charname {
+    font-family: 'Bangers';
+    color: white;
+    text-shadow: 3px 3px 2px black,0px 0px 8px black;
+    font-size: 48px;
+    text-align: center;
+    font-variant: small-caps;
+    height: min-content;
+    width: 400px;
+    border: 2px solid black;
+    border-radius: 2px;
+}
+
+.charname::placeholder {
+    color: darkgray;
+    text-shadow: 3px 3px 2px rgb(32, 32, 32),0px 0px 8px 4px black;
+}
+
+.charname:placeholder-shown {
+    background: linear-gradient(0.15turn, orange, darkred);
+}
+
+.charname:focus {
+    background: linear-gradient(0.15turn, rgb(185, 121, 0), rgb(63, 0, 0));
+}
+
+.charname:focus::placeholder {
+    color: transparent;
+    text-shadow: none;
+}
+
+/*.charnamediv:hover > :not(:focus) {
+    box-shadow: 0 0 3px 3px yellow;
+    cursor: pointer;
+}*/
+
+.playertitle {
+    font-family: 'Permanent Marker';
+    font-size: 18px;
+    margin-bottom: 0px;
+    align-self: right;
+    border: none;
+    height: min-content;
+    width: 400px;
+    color: white;
+    text-shadow: 2px 3px 3px black,0px 0px 6px black;
+}
+
+.playername {
+    font-family: 'Yusei Magic';
+    font-size: 18px;
+    margin-bottom: 0px;
+    align-self: right;
+    border: none;
+    height: min-content;
+    width: 400px;
+    color: white;
+    text-shadow: 2px 2px black,0px 0px 6px black;
+}
+
+.topinfo {
+    margin-top: 0px;
+    height: min-content;
+    background-color: rgb(53, 53, 53);
+    border-radius: 8px;
+    box-shadow: 0px 0px 6px 1px black;
+
+}
+
+.toptable {
+    width: 100%;
+    margin: auto;
+    margin-top: 0px;
+    border-radius: 8px;
+    background-color: rgb(53, 53, 53);
+}
+
+.theader {
+    font-family: 'Permanent Marker';
+    font-size: 18px;
+    font-weight: normal;
+    background-color: rgb(53, 53, 53);
+    color: white;
+    text-shadow: 2px 3px 3px black,0px 0px 6px black;
+    border-radius: 8px;
+}
+
+.tcell {
+    background-color: rgb(94, 94, 94);
+    border-radius: 6px;
+}
