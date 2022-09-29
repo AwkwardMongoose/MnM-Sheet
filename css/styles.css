@@ -57,7 +57,7 @@ body {
     border: 1px solid black;
     border-radius: 4px;
     background: linear-gradient(0.15turn, orange, darkred);
-    box-shadow: 3px 3px 3px rgb(9, 23, 44),0px 0px 8px 1px black;
+    box-shadow: 0px 0px 8px 1px black;
     position: relative;
     top: -10px;
     left: -15px;
