@@ -1,5 +1,6 @@
 * {
     font-family: 'Yusei Magic';
+    font-size: 12px;
 }
 
 *:focus {
@@ -18,7 +19,6 @@ input {
 }
 
 input:hover:not(:focus) {
-    border-radius: 2px;
     box-shadow: 0px 0px 2px 2px yellow;
     cursor: pointer;
 }
@@ -69,7 +69,7 @@ body {
     grid-row-end: 3;
     grid-column-start: 2;
     grid-column-end: 3;
-    box-shadow: 0px 0px 6px 3px black;
+    box-shadow: 0px 0px 6px 1px black;
 }
 
 .nameflex {
@@ -146,34 +146,65 @@ body {
 }
 
 .topinfo {
+    text-align: center;
     margin-top: 0px;
     height: min-content;
     background-color: rgb(53, 53, 53);
-    border-radius: 8px;
+    border: 2px solid black;
+    border-radius: 5px;
     box-shadow: 0px 0px 6px 1px black;
 }
 
-.toptable {
-    width: 100%;
+.basictitle {
     margin: auto;
-    margin-top: 0px;
-    border-radius: 8px;
-    background-color: rgb(53, 53, 53);
-}
-
-.theader {
     font-family: 'Permanent Marker';
     font-size: 18px;
     font-weight: normal;
-    background-color: rgb(53, 53, 53);
     color: white;
     text-shadow: 2px 3px 3px black,0px 0px 6px black;
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
-.tcell {
-    background-color: rgb(94, 94, 94);
+.breakline {
+    color: black;
+    border: 1px solid black;
+    margin-top: 3px;
+    width: 100%;
+}
+
+.basicinfo {
+    display: flex;
+    gap: 5px;
+    height: 20px;
+    margin: 8px;
+}
+
+.infotxt {
+    color: white;
+    font-size: 14px;
+    height: 18px;
+    text-shadow: 0px 0px 8px black,2px 2px 2px black;
+}
+
+.infoinput {
+    text-align: center;
+    height: 18px;
+    font-size: 13px;
+    color: white;
+    padding-bottom: 3px;
+    border: 0;
+    background-color: rgb(133, 133, 133);
     border-radius: 6px;
+    text-shadow: 0px 0px 8px black,2px 2px 2px black;
+    box-shadow: inset 0px 0px 3px 2px black;
+}
+
+.infoinput:placeholder-shown:not(:focus) {
+    border: 1px solid black;
+}
+
+.rname {
+    width: 12ch;
 }
 
 .pagetabs {
@@ -203,6 +234,7 @@ body {
 .tablabel {
     font-family: "Permanent Marker";
     color: white;
+    font-size: 16px;
     text-shadow: 0px 0px 8px black,2px 2px 2px black;
     border: 1px solid black;
     border-top: 2px solid black;
@@ -248,10 +280,13 @@ body {
 .tabdiv {
     background-color: rgb(53, 53, 53);
     border: 2px solid black;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    margin-bottom: 5px;
     transform: translate(0px, -3px);
     grid-row-start: 4;
-    grid-row-end: ;
     grid-column-start: 1;
     grid-column-end: 3;
     z-index: 5;
+    box-shadow: 0px 0px 6px 1px black;
 }
