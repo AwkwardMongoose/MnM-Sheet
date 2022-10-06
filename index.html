@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./js/dragula.min.js"></script>
-    <script src="./js/jquery-3.6.0.min.js"></script>
-    <script src="./js/jquery-ui.js"></script>
-    <script src="./js/scripts.js"></script>
+    <script src="./js/dragula.min.js" defer></script>
+    <script src="./js/jquery-3.6.0.min.js" defer></script>
+    <script src="./js/jquery-ui.js" defer></script>
+    <script src="./js/scripts.js" defer></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bangers">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yusei+Magic">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="./css/dragula.min.css">
     <link rel="stylesheet" href="./css/jquery-ui.css">
     <link rel="stylesheet" href="./css/styles.css">
@@ -33,7 +34,45 @@
             <span class="basictitle">Basic Info</span>
             <hr class="breakline">
             <div class="basicinfo">
-                <div class="infotxt notxt">Real Name: </div><input class="infoinput rname" name="rname" type="text" min="1" max="100" value="" placeholder=" ">
+                <div class="infotxt notxt">Real Name: </div><input class="infoinput" style="width: 10ch;" name="rname" type="text" min="1" max="100" value="" placeholder=" ">
+                <div class="infotxt notxt">Affiliation: </div><input class="infoinput" style="width: 10ch;" name="age" type="text" min="1" max="100" value="" placeholder=" ">
+                <div class="infotxt notxt">Alignment: </div><input class="infoinput" style="width: 8ch;" name="alignment" type="text" min="1" max="100" value="" placeholder=" ">
+                <div class="infotxt notxt">Size: </div><select class="infoselect" style="width: 10ch;">
+                    <option>Awesome</option>
+                    <option>Colossal</option>
+                    <option>Gargantuan</option>
+                    <option>Huge</option>
+                    <option>Large</option>
+                    <option selected>Medium</option>
+                    <option>Small</option>
+                    <option>Tiny</option>
+                    <option>Diminutive</option>
+                    <option>Fine</option>
+                    <option>Miniscule</option>
+                </select>
+                <div class="exptop">
+                    <div class="infotall">
+                        <div class="infotxt notxt">Level</div><input class="infoinput" style="width: 2ch;" name="alignment" type="text" min="1" max="100" value="1" placeholder=" ">    
+                    </div>
+                    
+                    <div class="infotall">
+                        <div class="infotxt notxt">Points</div><input class="infoinput" style="width: 3ch;" name="alignment" type="text" min="1" max="100" value="15" placeholder=" ">
+                    </div>
+                    <div class="infotall">
+                        <div class="infotxt notxt">Spent</div><input class="infoinput" style="width: 3ch;" name="alignment" type="text" min="1" max="100" value="0" placeholder=" ">
+                    </div>
+                    <div class="infotall">
+                        <div class="infotxt notxt">EXP</div><input class="infoinput" style="width: 3ch;" name="alignment" type="text" min="1" max="100" value="0" placeholder=" ">
+                    </div>
+                    <div class="infotall">
+                        <div class="infotxt notxt">Remaining</div><input class="infoinput" style="width: 3ch;" name="alignment" type="text" min="1" max="100" value="15" placeholder=" ">
+                    </div>
+                </div>
+                
+                
+                
+                
+                
             </div>
         </div>
         <div class="pagetabs">
@@ -48,10 +87,41 @@
             <input class="tabradio" type="radio" id="equipment" name="pagetabs" value="Equipment">
             <label class="tablabel notxt" for="equipment">Equipment</label>
             <input class="tabradio" type="radio" id="details" name="pagetabs" value="Details">
-            <label class="tablabel rghtlbl notxt" for="details">Details</label>
+            <label class="tablabel notxt" for="details">Details</label>
+            <input class="tabradio" type="radio" id="options" name="pagetabs" value="Options">
+            <label class="tablabel rghtlbl notxt" for="options"><span class="material-symbols-outlined">
+                settings
+                </span></label>
         </div>
         <div class="tabdiv">
-
+            <div>
+                <input class="tabswitch" type="checkbox" id="main" checked>
+                <div class="tabsect">Main</div>
+            </div>
+            <div>
+                <input class="tabswitch" type="checkbox" id="skills">
+                <div class="tabsect">Skills</div>
+            </div>
+            <div>
+                <input class="tabswitch" type="checkbox" id="feats">
+                <div class="tabsect">Feats</div>
+            </div>
+            <div>
+                <input class="tabswitch" type="checkbox" id="powers">
+                <div class="tabsect">Powers</div>
+            </div>
+            <div>
+                <input class="tabswitch" type="checkbox" id="equipment">
+                <div class="tabsect">Equipment</div>
+            </div>
+            <div>
+                <input class="tabswitch" type="checkbox" id="details">
+                <div class="tabsect">Details</div>
+            </div>
+            <div>
+                <input class="tabswitch" type="checkbox" id="options">
+                <div class="tabsect">Options</div>
+            </div>            
         </div>
     </div>
 </body>

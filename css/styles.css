@@ -18,6 +18,11 @@ input {
     cursor: pointer;
 }
 
+select:hover:not(:focus) {
+    box-shadow: 0px 0px 2px 2px yellow;
+    cursor: pointer;
+}
+
 input:hover:not(:focus) {
     box-shadow: 0px 0px 2px 2px yellow;
     cursor: pointer;
@@ -175,8 +180,18 @@ body {
 .basicinfo {
     display: flex;
     gap: 5px;
-    height: 20px;
+    height: min-content;
+    flex-wrap: wrap;
     margin: 8px;
+}
+
+.exptop {
+    display: flex;
+    box-shadow: 0px 0px 6px 1px black;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 10px;
 }
 
 .infotxt {
@@ -188,7 +203,7 @@ body {
 
 .infoinput {
     text-align: center;
-    height: 18px;
+    height: 20px;
     font-size: 13px;
     color: white;
     padding-bottom: 3px;
@@ -199,12 +214,34 @@ body {
     box-shadow: inset 0px 0px 3px 2px black;
 }
 
-.infoinput:placeholder-shown:not(:focus) {
-    border: 1px solid black;
+.infoselect {
+    text-align: center;
+    height: 24px;
+    font-size: 13px;
+    color: white;
+    padding: 2px;
+    padding-top: 1px;
+    padding-bottom: 3px;
+    border: 0;
+    background-color: rgb(133, 133, 133);
+    border-radius: 6px;
+    text-shadow: 0px 0px 8px black,2px 2px 2px black;
+    box-shadow: inset 0px 0px 3px 2px black;
 }
 
-.rname {
-    width: 12ch;
+option {
+    text-align: center;
+    height: 24px;
+    font-size: 13px;
+    color: white;
+    padding: 2px;
+    padding-top: 1px;
+    padding-bottom: 3px;
+    border: 0;
+    background-color: rgb(133, 133, 133);
+    border-radius: 6px;
+    text-shadow: 0px 0px 8px black,2px 2px 2px black;
+    box-shadow: inset 0px 0px 3px 2px black;
 }
 
 .pagetabs {
@@ -259,6 +296,7 @@ body {
 }
 
 .rghtlbl {
+    width: 35px;
     border-right: 2px solid black;
 }
 
@@ -289,4 +327,30 @@ body {
     grid-column-end: 3;
     z-index: 5;
     box-shadow: 0px 0px 6px 1px black;
+}
+
+.tabsect {
+    display: none;
+    color: white;
+    font-size: 14px;
+    height: 18px;
+    text-shadow: 0px 0px 8px black,2px 2px 2px black;
+}
+
+.tabswitch {
+    display: none;
+}
+
+.tabswitch:checked ~ .tabsect {
+    display: block;
+}
+
+.material-symbols-outlined {
+    font-size: 20px;
+    line-height: 32px;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
 }
