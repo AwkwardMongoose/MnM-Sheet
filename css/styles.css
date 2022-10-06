@@ -289,6 +289,9 @@ option {
 
 .tablabel:hover {
     cursor: pointer;
+    animation-name: tabhover;
+    animation-duration: 250ms;
+    animation-fill-mode: forwards;
 }
 
 .leftlbl {
@@ -312,6 +315,14 @@ option {
         background: linear-gradient(darkred 80%,rgb(53, 53, 53));
         border-bottom: 0;
         box-shadow: inset 0px 10px 8px -8px white;
+    }
+}
+
+@keyframes tabhover {
+    from {
+
+    } to {
+        box-shadow: inset 0px 10px 8px -8px rgb(122, 122, 122);
     }
 }
 
