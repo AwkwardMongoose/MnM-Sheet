@@ -187,11 +187,31 @@ body {
 
 .exptop {
     display: flex;
+    flex-wrap:wrap;
+    width: 266px;
+    height: 94px;
     box-shadow: 0px 0px 6px 1px black;
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
     gap: 10px;
+}
+
+.expbottom {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    justify-content:center;
+}
+
+.infobottom {
+    display: flex;
+    flex-wrap:wrap;
+    height: 94px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 11px;
 }
 
 .infotxt {
@@ -363,5 +383,33 @@ option {
   'FILL' 0,
   'wght' 400,
   'GRAD' 0,
-  'opsz' 48
+  'opsz' 48;
+  animation-name: cogspinfrom;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
 }
+
+.tabswitch:checked ~ .material-symbols-outlined {
+    animation-name: cogspinto;
+    animation-duration: 650ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes cogspinfrom {
+    from {
+        transform: rotate(0.5turn);
+        text-shadow: 0px 0px 8px black,-2px -2px 2px black;
+    } to {
+
+    }
+}
+
+@keyframes cogspinto {
+    from {
+
+    } to {
+        transform: rotate(0.5turn);
+        text-shadow: 0px 0px 8px black,-2px -2px 2px black;
+    }
+}
+
