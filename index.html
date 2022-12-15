@@ -8,6 +8,7 @@
     <script src="./js/jquery-3.6.0.min.js" defer></script>
     <script src="./js/jquery-ui.js" defer></script>
     <script src="./js/scripts.js" defer></script>
+    <script src="./js/mnmscripts.js" defer></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bangers">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yusei+Magic">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
@@ -21,78 +22,84 @@
     <div class="topgrid" id="topgrid">
         <div class="nameflex">
             <div class="charnamediv">
-                <input class="charname" id="charname" type="text" spellcheck="false" placeholder="Enter Hero Name...">
+                <input class="charname" id="charname" name="charname" type="text" spellcheck="false" placeholder="Enter Hero Name...">
             </div>
             <div class="playernamediv">
-                <span class="playertitle notxt">Player: </span><span class="playername notxt" id="playername">Empty</span>
+                <span class="playertitle notxt">Player: </span><span class="playername notxt" id="playername" name="playername">Empty</span>
             </div>
         </div>
-        <div class="image">
-            <img class="img" height="200px" src="https://cdn.discordapp.com/attachments/985229077013217280/1025497023186747493/unknown.png">
-        </div>
         <div class="topinfo">
-            <span class="basictitle">Basic Info</span>
+            <div class="basictitle">Basic Info</div>
             <hr class="breakline">
             <div class="basicinfo">
                 <div class="infotxt notxt">Real Name: </div><input class="infoinput" style="width: 10ch;" name="rname" type="text" min="1" max="100" value="" placeholder=" ">
                 <div class="infotxt notxt">Affiliation: </div><input class="infoinput" style="width: 10ch;" name="age" type="text" min="1" max="100" value="" placeholder=" ">
                 <div class="infotxt notxt">Alignment: </div><input class="infoinput" style="width: 8ch;" name="alignment" type="text" min="1" max="100" value="" placeholder=" ">
-                <div class="infotxt notxt">Size: </div><select class="infoselect" style="width: 10ch;">
-                    <option>Awesome</option>
-                    <option>Colossal</option>
-                    <option>Gargantuan</option>
-                    <option>Huge</option>
-                    <option>Large</option>
-                    <option selected>Medium</option>
-                    <option>Small</option>
-                    <option>Tiny</option>
-                    <option>Diminutive</option>
-                    <option>Fine</option>
-                    <option>Miniscule</option>
+                <div class="infotxt notxt">Size: </div><select class="infoselect" name="size" id="size" style="width: 10ch;">
+                    <option name="size_awesome" value="awe" id="size-awesome">Awesome</option>
+                    <option name="size_colossal" value="col" id="size-colossal">Colossal</option>
+                    <option name="size_gargantuan" value="gar" id="size-gargantuan">Gargantuan</option>
+                    <option name="size_huge" value="huge" id="size-huge">Huge</option>
+                    <option name="size_large" value="lrg" id="size-large">Large</option>
+                    <option name="size_medium" value="med" id="size-medium" selected>Medium</option>
+                    <option name="size_small" value="sml" id="size-small">Small</option>
+                    <option name="size_tiny" value="tiny" id="size-tiny">Tiny</option>
+                    <option name="size_diminutive" value="dim" id="size-diminutive">Diminutive</option>
+                    <option name="size_fine" value="fine" id="size-fine">Fine</option>
+                    <option name="size_miniscule" value="min" id="size-miniscule">Miniscule</option>
                 </select>
+                <input type="hidden" name="attr_sizecombat" id="sizecombat" value="0">
+                <input type="hidden" name="attr_sizegrapple" id="sizegrapple" value="0">
+                <input type="hidden" name="attr_sizestealth" id="sizestealth" value="0">
+                <input type="hidden" name="attr_sizeintimidate" id="sizeintimidate" value="0">
+                <input type="hidden" name="attr_sizecarrylarge" id="sizecarrylarge" value="0">
+                <input type="hidden" name="attr_sizecarrysmall" id="sizecarrysmall" value="1">
                 <div class="exptop">
                     <div class="infotall">
-                        <div class="infotxt notxt">Level</div><input class="infoinput" style="width: 2ch;" name="alignment" type="text" min="1" max="100" value="1" placeholder=" ">    
+                        <div class="infotxt notxt">Level</div><input class="infoinput" style="width: 2ch;" name="attr_level" type="text" min="1" max="100" value="1" placeholder=" ">    
                     </div>
                     <div class="infotall">
-                        <div class="infotxt notxt">Points</div><input class="infoinput" style="width: 3ch;" name="alignment" type="text" min="1" max="100" value="15" placeholder=" ">
+                        <div class="infotxt notxt">Points</div><input class="infoinput" style="width: 3ch;" name="attr_basepoints" data-macro="@{level}*15" type="text" min="1" max="100" value="15" placeholder=" " disabled>
                     </div>
                     <div class="infotall">
-                        <div class="infotxt notxt">Spent</div><input class="infoinput" style="width: 3ch;" name="alignment" type="text" min="1" max="100" value="0" placeholder=" ">
+                        <div class="infotxt notxt">EXP</div><input class="infoinput" style="width: 3ch;" name="attr_exp" type="text" min="1" max="100" value="0" placeholder=" ">
                     </div>
                     <div class="infotall">
-                        <div class="infotxt notxt">EXP</div><input class="infoinput" style="width: 3ch;" name="alignment" type="text" min="1" max="100" value="0" placeholder=" ">
+                        <div class="infotxt notxt">Spent</div><input class="infoinput" style="width: 3ch;" name="attr_spentpoints" type="text" min="1" max="100" value="0" placeholder=" ">
                     </div>
                     <div class="infotall">
-                        <div class="infotxt notxt">Remaining</div><input class="infoinput" style="width: 3ch;" name="alignment" type="text" min="1" max="100" value="15" placeholder=" ">
+                        <div class="infotxt notxt">Remaining</div><input class="infoinput" style="width: 3ch;" name="attr_remainpoints" data-macro="((@{basepoints}+@{miscpoints}+@{exp})-@{spentpoints})+@{drawbacks}" type="text" min="1" max="100" value="15" placeholder=" " disabled>
                     </div>
                     <div class="expbottom">
                         <div>
-                            <div class="infotxt notxt">Misc.</div><input class="infoinput" style="width: 3ch;" name="alignment" type="text" min="1" max="100" value="0" placeholder=" ">
+                            <div class="infotxt notxt">Misc.</div><input class="infoinput" style="width: 3ch;" name="attr_miscpoints" type="text" min="1" max="100" value="0" placeholder=" ">
                         </div>
                         <div>
-                            <div class="infotxt notxt">Drawbacks</div><input class="infoinput" style="width: 3ch;" name="alignment" type="text" min="1" max="100" value="0" placeholder=" ">
+                            <div class="infotxt notxt">Drawbacks</div><input class="infoinput" style="width: 3ch;" name="attr_drawbacks" type="text" min="1" max="100" value="0" placeholder=" ">
                         </div>
                     </div>
                 </div>
                 <div class="infobottom">
                     <div>
-                        <div class="infotxt notxt">Gender</div><input class="infoinput" style="width: 5ch;" name="alignment" type="text" min="1" max="100" value="" placeholder=" ">
+                        <div class="infotxt notxt">Gender</div><input class="infoinput" style="width: 5ch;" name="gender" type="text" min="1" max="100" value="" placeholder=" ">
                     </div>
                     <div>
-                        <div class="infotxt notxt">Age</div><input class="infoinput" style="width: 5ch;" name="alignment" type="text" min="1" max="100" value="" placeholder=" ">
+                        <div class="infotxt notxt">Age</div><input class="infoinput" style="width: 5ch;" name="age" type="text" min="1" max="100" value="" placeholder=" ">
                     </div>
                     <div>
-                        <div class="infotxt notxt">Eyes</div><input class="infoinput" style="width: 5ch;" name="alignment" type="text" min="1" max="100" value="" placeholder=" ">
+                        <div class="infotxt notxt">Eyes</div><input class="infoinput" style="width: 5ch;" name="eyes" type="text" min="1" max="100" value="" placeholder=" ">
                     </div>
                     <div>
-                        <div class="infotxt notxt">Hair</div><input class="infoinput" style="width: 5ch;" name="alignment" type="text" min="1" max="100" value="" placeholder=" ">
+                        <div class="infotxt notxt">Hair</div><input class="infoinput" style="width: 5ch;" name="hair" type="text" min="1" max="100" value="" placeholder=" ">
                     </div>
                     <div>
-                        <div class="infotxt notxt">Height</div><input class="infoinput" style="width: 5ch;" name="alignment" type="text" min="1" max="100" value="" placeholder=" ">
+                        <div class="infotxt notxt">Height</div><input class="infoinput" style="width: 5ch;" name="height" type="text" min="1" max="100" value="" placeholder=" ">
                     </div>
                     <div>
-                        <div class="infotxt notxt">Weight</div><input class="infoinput" style="width: 5ch;" name="alignment" type="text" min="1" max="100" value="" placeholder=" ">
+                        <div class="infotxt notxt">Weight</div><input class="infoinput" style="width: 5ch;" name="weight" type="text" min="1" max="100" value="" placeholder=" ">
+                    </div>
+                    <div>
+                        <div class="infotxt notxt">Hero Points</div><input class="infoinput" style="width: 3ch;" name="heropoints" type="number" min="1" max="100" value="1" placeholder=" ">
                     </div>
                 </div>
                 
@@ -118,35 +125,671 @@
                 settings
                 </span></label>
         </div>
+
+        
         <div class="tabdiv">
+<!-- MAIN TAB -->
             <div>
                 <input class="tabswitch" type="checkbox" id="main" checked>
-                <div class="tabsect">Main</div>
+                <div class="tabsect mainsect">
+                    <div class="mainsubleft">
+    <!-- ABILITY SCORES -->
+                        <div class="attrsect sect">
+                            <div class="secttitle notxt">Ability Scores</div>
+                            <div class="sectbody">
+                                <table class="attrtable">
+                                    <tr class="tablehead notxt">
+                                        <th class="emptycell">
+                                            &nbsp;
+                                        </th>
+                                        <th>
+                                            Mod
+                                        </th>
+                                        <th>
+                                            Total
+                                        </th>
+                                        <th>
+                                            Base
+                                        </th>
+                                        <th>
+                                            Misc.
+                                        </th>
+                                        <th>
+                                            Temp
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Strength
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_strmod" type="text" value="+0" data-macro="+floor[((@{str}-10)/2)]" disabled>
+                                        </td>
+                                        <td>
+                                            <input class="attrtot" type="text" name="attr_str" value="10" data-macro="@{basestr}+@{miscstr}+@{tempstr}" disabled>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_basestr" value="10" min="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_miscstr" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_tempstr" value="0">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Dexterity
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_dexmod" id="dexmod" type="text" value="+0" data-macro="+floor[((@{dex}-10)/2)]" disabled>
+                                        </td>
+                                        <td>
+                                            <input class="attrtot" name="attr_dex" id="totdex" type="number" data-macro="@{basedex}+@{miscdex}+@{tempdex}" value="10" min="0" disabled>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_basedex" value="10" min="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_miscdex" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_tempdex" value="0">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Constitution
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_conmod" type="text" value="+0" data-macro="+floor[((@{con}-10)/2)]" disabled>
+                                        </td>
+                                        <td>
+                                            <input class="attrtot" name="attr_con" type="number" data-macro="@{basecon}+@{misccon}+@{tempcon}" value="10" min="0" disabled>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_basecon" value="10" min="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_misccon" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_tempcon" value="0">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Intelligence
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_intmod" type="text" value="+0" data-macro="+floor[((@{int}-10)/2)]" disabled>
+                                        </td>
+                                        <td>
+                                            <input class="attrtot" name="attr_int" type="number" data-macro="@{baseint}+@{miscint}+@{tempint}" value="10" min="0" disabled>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_baseint" value="10" min="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_miscint" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_tempint" value="0">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Wisdom
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_wismod" type="text" value="+0" data-macro="+floor[((@{wis}-10)/2)]" disabled>
+                                        </td>
+                                        <td>
+                                            <input class="attrtot" name="attr_wis" type="number" data-macro="@{basewis}+@{miscwis}+@{tempwis}" value="10" min="0" disabled>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_basewis" value="10" min="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_miscwis" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_tempwis" value="0">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Charisma
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_chamod" type="text" value="+0" data-macro="+floor[((@{cha}-10)/2)]" disabled>
+                                        </td>
+                                        <td>
+                                            <input class="attrtot" name="attr_cha" type="number" data-macro="@{basecha}+@{misccha}+@{tempcha}" value="10" min="0" disabled>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_basecha" value="10" min="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_misccha" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_tempcha" value="0">
+                                        </td>
+                                    </tr>
+                                </table>    
+                            </div>
+                        </div>
+    <!-- SAVING THROWS -->
+                        <div class="savesect sect">
+                            <div class="secttitle notxt">Saving Throws</div>
+                            <div class="sectbody">
+                                <table class="attrtable">
+                                    <tr class="tablehead notxt">
+                                        <th class="emptycell">
+                                            &nbsp;
+                                        </th>
+                                        <th>
+                                            Total
+                                        </th>
+                                        <th>
+                                            Ability
+                                        </th>
+                                        <th>
+                                            Ranks
+                                        </th>
+                                        <th>
+                                            Misc.
+                                        </th>
+                                        <th>
+                                            Temp
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Toughness
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_tough" type="text" value="+0" data-macro="@{conmod}+@{toughrank}+@{misctough}+@{temptough}" disabled>
+                                        </td>
+                                        <td>
+                                            <input class="attrtot" type="text" value="CON" disabled>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_toughrank" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_misctough" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_temptough" value="0">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Fortitude
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_fort" type="text" value="+0" data-macro="@{conmod}+@{fortrank}+@{miscfort}+@{tempfort}" disabled>
+                                        </td>
+                                        <td>
+                                            <input class="attrtot" type="text" value="CON" disabled>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_fortrank" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_miscfort" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_tempfort" value="0">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Reflex
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_reflex" type="text" value="+0" data-macro="@{dexmod}+@{reflexrank}+@{miscreflex}+@{tempreflex}" disabled>
+                                        </td>
+                                        <td>
+                                            <input class="attrtot" type="text" value="DEX" disabled>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_reflexrank" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_miscreflex" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_tempreflex" value="0">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Will
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_will" type="text" value="+0" data-macro="@{wismod}+@{willrank}+@{miscwill}+@{tempwill}" disabled>
+                                        </td>
+                                        <td>
+                                            <input class="attrtot" type="text" value="WIS" disabled>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_willrank" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_miscwill" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_tempwill" value="0">
+                                        </td>
+                                    </tr>
+                                </table>
+                                <hr>
+    <!-- SAVING THROW NOTES -->
+                                <table class="attrtable">
+                                    <tr class="tablehead notxt">
+                                        <th class="emptycell">
+                                            &nbsp;
+                                        </th>
+                                        <th>
+                                            Notes
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Toughness
+                                        </td>
+                                        <td>
+                                            <input class="attrnotes" name="toughnotes" type="text" value="" placeholder="Enter notes here...">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Fortitude
+                                        </td>
+                                        <td>
+                                            <input class="attrnotes" name="fortnotes" type="text" value="" placeholder="Enter notes here...">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Reflex
+                                        </td>
+                                        <td>
+                                            <input class="attrnotes" name="reflexnotes" type="text" value="" placeholder="Enter notes here...">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Will
+                                        </td>
+                                        <td>
+                                            <input class="attrnotes" name="willnotes" type="text" value="" placeholder="Enter notes here...">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>                        
+                        </div>
+                    </div>
+
+                    <div class="mainsubright">
+    <!-- HEALTH -->
+                        <div class="sect">
+                            <div class="secttitle notxt">Health</div>
+                            <div class="sectbody">
+                                <table class="attrtable hptable">
+                                    <tr class="tablehead notxt">
+                                        <th>
+                                            Bruises
+                                        </th>
+                                        <th>
+                                            Injuries
+                                        </th>
+                                        <th>
+                                            Staggered
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="number" name="attr_bruises" value="0" min="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_injuries" value="0" min="0">
+                                        </td>
+                                        <td>
+                                            <input class="checkmark" name="attr_staggered" type="checkbox" value="0">
+                                        </td>
+                                    </tr>
+                                    <tr class="tablehead notxt">
+                                        <th>
+                                            Disabled
+                                        </th>
+                                        <th>
+                                            Unconscious
+                                        </th>
+                                        <th>
+                                            Dying
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="checkmark" name="attr_disabled" type="checkbox" value="0">
+                                        </td>
+                                        <td>
+                                            <input class="checkmark" name="attr_unconscious" type="checkbox" value="0">
+                                        </td>
+                                        <td>
+                                            <input class="checkmark" name="attr_dying" type="checkbox" value="0">
+                                        </td>
+                                    </tr>
+                                </table>    
+                            </div>
+                        </div>
+    <!-- DEFENSE -->
+                        <div class="sect">
+                            <div class="secttitle notxt">Combat</div>
+                            <div class="sectbody">
+                                <table class="attrtable">
+                                    <tr class="tablehead notxt">
+                                        <th class="emptycell">
+                                            &nbsp;
+                                        </th>
+                                        <th>
+                                            Total
+                                        </th>
+                                        <th>
+                                            Base
+                                        </th>
+                                        <th>
+                                            Size
+                                        </th>
+                                        <th>
+                                            Feat
+                                        </th>
+                                        <th>
+                                            Misc.
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Defense
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_defense" type="text" value="10" data-macro="10+@{basedef}+@{sizedef}+@{featdef}+@{miscdef}" disabled>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_basedef" value="0">
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_sizedef" data-macro="@{sizecombat}" type="text" value="0" disabled>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_featdef" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_miscdef" value="0">
+                                        </td>
+                                    </tr>
+                                    <tr class="tablehead notxt">
+                                        <th class="emptycell">
+                                            &nbsp;
+                                        </th>
+                                        <th colspan="2">
+                                            Flat-footed
+                                        </th>
+                                        <th class="emptycell">
+                                            &nbsp;
+                                        </th>
+                                        <th colspan="2">
+                                            Knockback
+                                        </th>
+                                    </tr>
+                                    <tr class="tablehead">
+                                        <td class="emptycell">
+                                            &nbsp;
+                                        </td>
+                                        <td class="isocell" colspan="2">
+                                            <input class="attrmod" name="attr_flatfooted" type="text" value="10" data-macro="10+@{basedef}+@{sizedef}+floor[@{featdef}/2]+floor[@{miscdef}/2]" disabled>
+                                        </td>
+                                        <td class="emptycell">
+                                            &nbsp;
+                                        </td>
+                                        <td class="isocell" colspan="2">
+                                            <input type="number" name="attr_knockbackdef" value="0">
+                                        </td>
+                                    </tr>
+                                </table>
+                                <hr>
+    <!-- INITIATIVE -->
+                                <table class="attrtable">
+                                    <tr class="tablehead notxt">
+                                        <th class="emptycell">
+                                            &nbsp;
+                                        </th>
+                                        <th>
+                                            Total
+                                        </th>
+                                        <th>
+                                            Ability
+                                        </th>
+                                        <th>
+                                            Feat
+                                        </th>
+                                        <th>
+                                            Misc.
+                                        </th>
+                                        <th>
+                                            Temp
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Initiative
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_init" type="text" value="+0" data-macro="@{dexmod}+@{featinit}+@{miscinit}+@{tempinit}" disabled>
+                                        </td>
+                                        <td>
+                                            <input class="attrtot" type="text" value="DEX" min="0" disabled>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_featinit" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_miscinit" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_tempinit" value="0">
+                                        </td>
+                                    </tr>
+                                </table>
+                                <hr>
+    <!-- ATTACK -->
+                                <table class="attrtable">
+                                    <tr class="tablehead notxt">
+                                        <th class="emptycell">
+                                            &nbsp;
+                                        </th>
+                                        <th>
+                                            Total
+                                        </th>
+                                        <th>
+                                            Base
+                                        </th>
+                                        <th>
+                                            Size
+                                        </th>
+                                        <th>
+                                            Misc.
+                                        </th>
+                                        <th>
+                                            Temp
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Attack
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_attack" type="text" value="0" data-macro="@{baseatk}+@{sizeatk}+@{miscatk}+@{tempatk}" disabled>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_baseatk" value="0">
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_sizeatk" data-macro="@{sizecombat}" type="text" value="0" disabled>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_miscatk" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_tempatk" value="0">
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table class="attrtable">
+                                    <tr class="tablehead notxt">
+                                        <th class="emptycell">
+                                            &nbsp;
+                                        </th>
+                                        <th>
+                                            Total
+                                        </th>
+                                        <th>
+                                            Base
+                                        </th>
+                                        <th>
+                                            Misc.
+                                        </th>
+                                        <th class="emptycell">
+                                            &nbsp;
+                                        </th>
+                                        <th>
+                                            Temp
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Melee
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_melee" type="text" value="0" data-macro="@{basemelee}+@{miscmelee}+@{tempmelee}" disabled>
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_basemelee" type="text" value="0" data-macro="@{attack}" disabled>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_miscmelee" value="0">
+                                        </td>
+                                        <th class="emptycell">
+                                            &nbsp;
+                                        </th>
+                                        <td>
+                                            <input type="number" name="attr_tempmelee" value="0">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Ranged
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_ranged" type="text" value="0" data-macro="@{baseranged}+@{miscranged}+@{tempranged}" disabled>
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_baseranged" type="text" value="0" data-macro="@{attack}" disabled>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_miscranged" value="0">
+                                        </td>
+                                        <th class="emptycell">
+                                            &nbsp;
+                                        </th>
+                                        <td>
+                                            <input type="number" name="attr_tempranged" value="0">
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br>
+                                <table class="attrtable">
+                                    <tr class="tablehead notxt">
+                                        <th class="emptycell">
+                                            &nbsp;
+                                        </th>
+                                        <th>
+                                            Total
+                                        </th>
+                                        <th>
+                                            Attack
+                                        </th>
+                                        <th>
+                                            Ability
+                                        </th>
+                                        <th>
+                                            Power
+                                        </th>
+                                        <th>
+                                            Size
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td class="attrhead notxt">
+                                            Grapple
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_grapple" type="text" value="0" data-macro="@{grappleatk}+@{strmod}+@{pwrgrapple}+@{grapplesize}" disabled>
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_grappleatk" type="text" value="0" data-macro="@{attack}" disabled>
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" type="text" value="STR" disabled>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="attr_pwrgrapple" value="0">
+                                        </td>
+                                        <td>
+                                            <input class="attrmod" name="attr_grapplesize" type="text" data-macro="@{sizegrapple}" value="0" disabled>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+<!-- SKILLS TAB -->
             <div>
                 <input class="tabswitch" type="checkbox" id="skills">
                 <div class="tabsect">Skills</div>
             </div>
+<!-- FEATS TAB -->
             <div>
                 <input class="tabswitch" type="checkbox" id="feats">
                 <div class="tabsect">Feats</div>
             </div>
+<!-- POWERS TAB -->
             <div>
                 <input class="tabswitch" type="checkbox" id="powers">
                 <div class="tabsect">Powers</div>
             </div>
+<!-- EQUIPMENT TAB -->
             <div>
                 <input class="tabswitch" type="checkbox" id="equipment">
                 <div class="tabsect">Equipment</div>
             </div>
+<!-- DETAILS TAB -->
             <div>
                 <input class="tabswitch" type="checkbox" id="details">
                 <div class="tabsect">Details</div>
             </div>
+<!-- OPTIONS TAB -->
             <div>
                 <input class="tabswitch" type="checkbox" id="options">
                 <div class="tabsect">Options</div>
-            </div>            
+            </div>
         </div>
     </div>
 </body>

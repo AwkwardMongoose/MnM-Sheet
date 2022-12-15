@@ -1,9 +1,20 @@
 * {
     font-family: 'Yusei Magic';
-    font-size: 12px;
 }
 
-*:focus {
+hr {
+    border: 1px solid black;
+    width: 95%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+*:focus:not(.checkmark) {
     outline: 2px dashed yellow;
 }
 
@@ -23,7 +34,7 @@ select:hover:not(:focus) {
     cursor: pointer;
 }
 
-input:hover:not(:focus) {
+input:hover:not(:focus, :disabled) {
     box-shadow: 0px 0px 2px 2px yellow;
     cursor: pointer;
 }
@@ -39,20 +50,20 @@ body {
 
 .topgrid {
     display: grid;
-    width: 1020px;
+    width: 834px;
     height: 1000px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
     grid-template-rows: 65px min-content 50px auto;
-    grid-template-columns: auto min-content;
+    grid-template-columns: auto;
     margin: auto;
     margin-top: 10px;
     gap: 5px;
     grid-template-areas: 
-    'nameflex image'
-    'topinfo topinfo'
-    'pagetabs pagetabs'
-    'tabdiv tabdiv'
+    'nameflex'
+    'topinfo'
+    'pagetabs'
+    'tabdiv'
     ;
     border: none;
     border-radius: 3px;
@@ -166,15 +177,19 @@ body {
     font-size: 18px;
     font-weight: normal;
     color: white;
+    background-color: rgb(30,30,30);
     text-shadow: 2px 3px 3px black,0px 0px 6px black;
-    border-radius: 5px;
+    border-radius: 2px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 .breakline {
     color: black;
     border: 1px solid black;
-    margin-top: 3px;
+    margin-top: 0px;
     width: 100%;
+
 }
 
 .basicinfo {
@@ -183,14 +198,17 @@ body {
     height: min-content;
     flex-wrap: wrap;
     margin: 8px;
+    justify-content: space-around;
 }
 
 .exptop {
     display: flex;
     flex-wrap:wrap;
     width: 266px;
-    height: 94px;
+    height: 104px;
     box-shadow: 0px 0px 6px 1px black;
+    border-radius: 3px;
+    background-color: rgb(73, 73, 73);
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
@@ -208,9 +226,11 @@ body {
     display: flex;
     flex-wrap:wrap;
     height: 94px;
+    width: 469px;
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
+    justify-content: center;
     gap: 11px;
 }
 
@@ -222,7 +242,7 @@ body {
 }
 
 .infoinput {
-    text-align: center;
+    /*text-align: center;
     height: 20px;
     font-size: 13px;
     color: white;
@@ -231,7 +251,16 @@ body {
     background-color: rgb(133, 133, 133);
     border-radius: 6px;
     text-shadow: 0px 0px 8px black,2px 2px 2px black;
-    box-shadow: inset 0px 0px 3px 2px black;
+    box-shadow: inset 0px 0px 3px 2px black;*/
+    text-align: center;
+    background-color: lightgray;
+    border: 0;
+    width: 30px;
+    height: 20px;
+    border-radius: 20px;
+    font-weight: normal;
+    font-size: 13px;
+    box-shadow: 0px 0px 3px 0px black,inset 0px 0px 3px 0px;
 }
 
 .infoselect {
@@ -348,24 +377,48 @@ option {
 
 .tabdiv {
     background-color: rgb(53, 53, 53);
+    height: 100%;
     border: 2px solid black;
     border-radius: 5px;
     border-top-left-radius: 0px;
+    border-top-right-radius: 15px;
     margin-bottom: 5px;
     transform: translate(0px, -3px);
-    grid-row-start: 4;
-    grid-column-start: 1;
-    grid-column-end: 3;
     z-index: 5;
     box-shadow: 0px 0px 6px 1px black;
+}
+
+.mainsubleft {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mainsubright {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mainsect {
+    display:grid;
+    gap: 10px;
+    grid-template-areas: 
+    'mainsubleft mainsubright'
+    ;
 }
 
 .tabsect {
     display: none;
     color: white;
     font-size: 14px;
-    height: 18px;
+    height: 100%;
+    padding: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 2px;
     text-shadow: 0px 0px 8px black,2px 2px 2px black;
+    justify-content:space-between;
 }
 
 .tabswitch {
@@ -374,6 +427,10 @@ option {
 
 .tabswitch:checked ~ .tabsect {
     display: block;
+}
+
+.tabswitch:checked ~ .mainsect {
+    display: grid;
 }
 
 .material-symbols-outlined {
@@ -413,3 +470,193 @@ option {
     }
 }
 
+.sect {
+    width: 400px;
+    height: fit-content;
+    text-align: center;
+    justify-items: center;
+    background-color: rgb(30,30,30);
+    border-radius: 15px;
+    box-shadow: 0px 0px 3px 1px black;
+    overflow: hidden;
+}
+
+.sectbody {
+    text-align: center;
+    background-color: rgb(99, 99, 99);
+    width: 100%;
+    height: 100%;
+    padding-bottom: 5px;
+}
+
+.attrtable {
+    background-color: transparent;
+    border-collapse: separate;
+    margin: auto;
+    padding: 3px;
+    border-radius: 3px;
+    text-align: center;
+    border-spacing: 3px;
+    width: 100%;
+}
+
+.attrtable > tbody > tr > th {
+    background-color: rgb(24, 61, 117);
+    font-family: "Permanent Marker";
+    font-weight: normal;
+    border-radius: 5px;
+    min-width: 50px;
+    max-width: 50px;
+    font-size: 14px;
+    box-shadow: 0px 0px 3px 1px black;
+    padding-bottom: 4px;
+    z-index: 6;
+}
+
+.attrtable > tbody > tr > td {
+    background-color: transparent;
+    font-family: "Permanent Marker";
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.attrtable > tbody > tr > td > input:not(.checkmark,.attrnotes) {
+    text-align: center;
+    background-color: lightgray;
+    border: 0;
+    width: 40px;
+    border-radius: 20px;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.attrtable > tbody > tr > td > input:not(.checkmark, :hover) {
+    box-shadow: 0px 0px 3px 0px black,inset 0px 0px 3px 0px;
+}
+
+.attrtable > tbody > tr > td > input:focus {
+    box-shadow: 0px 0px 3px 0px black,inset 0px 0px 3px 0px;
+}
+
+.attrtable > tbody > tr > .attrhead {
+    background-color: rgb(24, 61, 117);
+    font-family: "Permanent Marker";
+    border-radius: 5px;
+    min-width: 80px;
+    width: 100px;
+    font-size: 14px;
+    padding-bottom: 4px;
+    box-shadow: 0px 0px 3px 1px black;
+}
+
+.attrtable > tbody > tr > th.emptycell {
+    background: transparent;
+    box-shadow: none;
+}
+
+.attrtable > tbody > tr > td > input.attrmod {
+    background-color: transparent;
+    font-weight: normal;
+    color: white;
+    border: 0;
+    box-shadow: none;
+    outline: none;
+}
+
+.attrtable > tbody > tr > td > input.attrmod:hover {
+    cursor: text;
+}
+
+.attrtable > tbody > tr > td > input.attrtot {
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: normal;
+    color: white;
+    border: 0;
+    box-shadow: none;
+    outline: none;
+}
+
+.attrtable > tbody > tr > td > input.attrtot:hover {
+    cursor: text;
+}
+
+.attrtable > tbody > tr:not(.tablehead) {
+    box-shadow: inset 0px 0px 10px 6px black;
+    border-radius: 15px;
+}
+
+.attrtable > tbody > tr > td.isocell {
+    box-shadow: inset 0px 0px 10px 6px black;
+    border-radius: 15px;
+}
+
+.secttitle {
+    font-family: "Permanent Marker";
+    font-size: 16px;
+    text-align: center;
+    padding-bottom: 3px;
+    background-color: rgb(30,30,30);
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    width: 100%;
+    margin-top: -1px;
+}
+
+.sect2 {
+    width: 400px;
+    text-align: center;
+    justify-items: center;
+    background-color: rgb(30,30,30);
+    border-radius: 15px;
+    box-shadow: 0px 0px 3px 1px black;
+    padding-bottom: 5px;
+    overflow: hidden;
+}
+
+.hptable {
+    width: 100%;
+}
+
+.checkmark {
+    -webkit-appearance: none;
+    appearance: none;
+    max-width: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    max-height: 20px;
+    border-radius: 5px;
+    font-family: "Permanent Marker";
+    font-size: 25px;
+    color: rgb(170, 0, 0);
+    background-color: lightgray;
+    margin: 0;
+    transform: translate(0,2.5px);
+    box-shadow: 0 0 2px 1px black,inset 0 0 3px 0px black;
+}
+
+.checkmark:checked::before {
+    position: absolute;
+    left: -1px;
+    bottom: -14px;
+    content: "X";
+    margin: 0;
+    opacity: 75%;
+    font-size: 35px;
+}
+
+.checkmark:focus:hover {
+    box-shadow: 0px 0px 2px 2px yellow;
+    cursor: pointer;
+}
+
+.attrnotes {
+    min-width: 96%;
+    text-align: left;
+    background-color: lightgray;
+    border: 0;
+    border-radius: 20px;
+    font-weight: normal;
+    font-size: 14px;
+    text-indent: 5px;
+}
