@@ -1,0 +1,67 @@
+body {
+    background-color: black;
+}
+
+.loginwindow {
+    border: 2px solid lightgrey;
+    background: grey;
+    border-radius: 30px;
+    width: 600px;
+    height: 300px;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+    box-shadow: 0px 0px 10px 1px blue,inset 0px 0px 6px 1px black,inset 0px 0px 100px 1px black;
+}
+
+.loginbox {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.entrybox {
+    position: relative;
+    top: -2px;
+    border: 2px solid black;
+    width: 546px;
+    margin: auto;
+}
+
+.selecttabs {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    width: 550px;
+    margin: auto;
+    z-index: 1;
+}
+
+.tabradio {
+    display: none;
+}
+
+.tablabels {
+    position: relative;
+    border: 2px solid black;
+    text-align: center;
+    min-width: 100px;
+    width: 100px;
+}
+
+.tabradio:checked + .tablabels {
+    border: 2px solid red;
+}
+
+.tabsect {
+    display: none;
+
+}
+
+.tabswitch {
+    display: none;
+}
+
+.tabswitch:checked + .tabsect {
+    display: block;
+}

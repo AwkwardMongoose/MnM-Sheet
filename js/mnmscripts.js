@@ -6,7 +6,7 @@ sizeVal.addEventListener('change',function() {
     sizeMods(sizeVal.value)
 })
 
-function sizeMods(size) {
+function sizeMods() {
     let sizecombat = document.getElementById('sizecombat');
     let sizegrapple = document.getElementById('sizegrapple');
     let sizestealth = document.getElementById('sizestealth');

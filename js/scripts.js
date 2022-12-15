@@ -4,7 +4,6 @@ const inputValues = $('input').toArray();
 
 // UPDATE INPUT MACROS
 inputValues.forEach(el => {
-    el.id = el.name.replace('attr_','');
     if (el.name.includes('attr_')) {
         el.title = "@{"+el.name.replace('attr_','')+"}";
         el.id = el.name.replace('attr_','');
@@ -102,7 +101,6 @@ function valReplacer(el) {
 // TAB SWITCHING
 tabRadios.forEach(tab => {
     tab.addEventListener('change', function() {
-        console.log('Test')
         tabSwitches.forEach(swit => {
             if (swit.id != tab.id) {
                 swit.checked = false;
